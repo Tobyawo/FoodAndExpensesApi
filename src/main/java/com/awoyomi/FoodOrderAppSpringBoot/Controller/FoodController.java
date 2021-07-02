@@ -32,5 +32,17 @@ private FoodRepository foodRepository;
 
     }
 
+    @PostMapping(value = "savefood")
+    @ResponseBody
+    public void saveFood(@RequestBody Food food){
+        Food newFood = new Food();
+        newFood.setId(food.getId());
+        newFood.setName(food.getName());
+        newFood.setDescription(food.getDescription());
+        newFood.setPrice(food.getPrice());
+        foodRepository.save(newFood);
+
+    }
+
 
 }
